@@ -69,7 +69,7 @@ export class Router {
         return this
     }
 
-    public register<T> (method: Methods, path: string, [Controller, handler]: Handler<T>) {
+    private register<T> (method: Methods, path: string, [Controller, handler]: Handler<T>) {
         this.router[method] (path, this.middlewares, this.wrap<T>("action", [Controller, handler]))
         this.middlewares = []
 
